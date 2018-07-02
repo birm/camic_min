@@ -1,0 +1,1 @@
+# camic_min
