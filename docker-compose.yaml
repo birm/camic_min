@@ -5,15 +5,22 @@ services:
     image: mongo
     container_name: camic-mongo
     ports:
-      -"27017"
+      - "27017"
   data:
     build: "https://github.com/birm/caMicData.git"
     container_name: camic-data
     environment:
       - MONGO="camic-mongo:27017"
+      - PORT=3001
+    ports:
+      - "3001"
   iip:
     build: "https://github.com/camicroscope/iipImage.git"
     container_name: camic-iip
+    ports:
+      - "4010"
   viewer:
     build: "./viewer"
     container_name: "camic-viewer"
+    ports:
+      - "8880:80"
