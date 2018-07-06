@@ -28,6 +28,7 @@ class Store{
     this.slideUrl = config.slideUrl || "http://localhost:3001/slide"
     this.marktypeUrl = config.marktypeUrl || "http://localhost:3001/marktype"
     this.markUrl = config.markUrl || "http://localhost:3001/marking"
+    this.heatmapUrl = config.heatmapUrl || "http://localhost:3001/heatmap"
   }
   setId(id){
     this.slideId = id;
@@ -43,6 +44,14 @@ class Store{
 
   getMarktypes(){
     var url = this.marktypeUrl;
+    var params = {slide: this.slideId};
+    return fetch(url + "?" + objToParamStr(params), {
+            credentials: "same-origin"
+        }).then((x)=>x.json())
+  }
+
+  getHeatmaps(){
+    var url = this.heatmapUrl;
     var params = {slide: this.slideId};
     return fetch(url + "?" + objToParamStr(params), {
             credentials: "same-origin"

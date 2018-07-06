@@ -33,6 +33,14 @@ class Controller{
     var markInfoPromise = this.store.getMarkById(id);
     markInfoPromise.then(console.log)
   }
+  async drawHeatmap(){
+    var heatmaps = await this.store.getHeatmaps();
+    let heatmap = heatmaps[0]; // todo genralize
+    let hm = simpleheat(c3, heatmap.height, heatmap.width, 13000, 10000)
+    var hm = hm.data(heatmap.values).max(18)
+    hm.radius(500, 10)
+    hm.draw();
+  }
 }
 try{
   module.exports = Controller;
