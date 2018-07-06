@@ -4,6 +4,8 @@ services:
   mongo:
     image: mongo
     container_name: camic-mongo
+    volumes:
+      - './data:/data/db'
     ports:
       - "27017"
   data:
@@ -21,6 +23,8 @@ services:
       - CHECK_HEADER='no'
     ports:
       - "4010:4010"
+    volumes:
+      - './images:/images'
   viewer:
     build: "./viewer"
     container_name: "camic-viewer"
