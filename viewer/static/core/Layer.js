@@ -1,8 +1,8 @@
 class Layer{
   constructor(viewer){
-    this.viewer
-    this.layers={}
-    this.delayers={}
+    this.viewer = viewer;
+    this.layers={};
+    this.delayers={};
     this.visibleLayers=new Set([]);
   }
   getLayer(name){
@@ -16,9 +16,11 @@ class Layer{
   hideLayer(name){
     this.visibleLayers.delete(name)
   }
+  // add a layer to the visible list
   showLayer(name){
     this.visibleLayers.add(name)
   }
+  // draw all visible layers
   drawVisible(onto){
     for (let name of this.visibleLayers.entries()){
       this.delayers[name].__apply_all(onto);
@@ -26,8 +28,3 @@ class Layer{
   }
 
 }
-// the layers
-
-// get layer, creating if not exists
-
-// draw all

@@ -3,8 +3,8 @@
 // on mouse events add to this list
 // call the renaerannots with current
 class Draw{
-  constructor(viewer, context, testmode=false){
-    this.context = context;
+  constructor(viewer, layer, testmode=false){
+    this.layer = layer;
     this.data = {type:"Feature", geometry:{coordinates:[], type:"MultiPolygon"}};
     this.active = false;
     this.viewer=viewer;
@@ -24,9 +24,9 @@ class Draw{
     if (this.active){
       let pt=[x,y];
       this.data.geometry.coordinates[this.data.geometry.coordinates.length-1][0].push(pt)
-      this.context.__clear_queue()
+      this.layer.__clear_queue()
       if (!this.testmode){
-        renderFeature("drawingnow", this.data, this.context)
+        renderFeature("drawingnow", this.data, this.layer)
       }
     }
   }
