@@ -16,6 +16,11 @@ class Layer{
   hideLayer(name){
     this.visibleLayers.delete(name)
   }
+  resetAll(){
+    this.layers={};
+    this.delayers={};
+    this.visibleLayers=new Set([]);
+  }
   // add a layer to the visible list
   showLayer(name){
     this.visibleLayers.add(name)
