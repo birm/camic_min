@@ -6,12 +6,12 @@ class Layer{
     this.visibleLayers=new Set([]);
   }
   getLayer(name){
-    if !(name in this.layers){
+    if (!(name in this.layers)){
       this.delayers[name] = delayer({});
       this.layers[name] = ViewportCalibratedCanvas(this.delayers[name], this.viewer);
     }
     this.showLayer(name)
-    return thislayers[name]
+    return this.layers[name]
   }
   hideLayer(name){
     this.visibleLayers.delete(name)

@@ -20,7 +20,7 @@ services:
     build: "https://github.com/camicroscope/iipImage.git"
     container_name: camic-iip
     environment:
-      - CHECK_HEADER='no'
+      - CHECK_HEADER=no
     ports:
       - "4010:4010"
     volumes:

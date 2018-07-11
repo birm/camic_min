@@ -41,7 +41,7 @@ async function run_demo(){
   // get first heatmap
   var heatmap = await store.getHeatmaps();
   let hm = simpleheat(layers.delayers['heatmap'], heatmap.height, heatmap.width, 13000, 10000)
-  var hm = hm.data(heatmap.values).max(18)
+  hm = hm.data(heatmap.values).max(18)
   hm.radius(500, 10)
   hm.draw();
 }
